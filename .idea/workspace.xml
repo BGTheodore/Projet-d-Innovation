@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="743c8b9a-7066-43e9-bcc5-7e4c93c342cb" name="Changes" comment="" />
+    <list default="true" id="743c8b9a-7066-43e9-bcc5-7e4c93c342cb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/enseigne.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/enseigne.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/enseigne.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/enseigne.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647430889162</updated>
-      <workItem from="1647430894768" duration="29418000" />
+      <workItem from="1647430894768" duration="44148000" />
     </task>
     <servers />
   </component>

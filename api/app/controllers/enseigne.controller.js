@@ -17,19 +17,28 @@ const enseigne = new Enseigne({
     address:req.body.address,
     imageURL:req.body.imageURL,
     state:req.body.state
-    // title: req.body.title || "Untitled Enseigne",
-    // content: req.body.content
 });
 
+
 // Save Enseigne in the database
-enseigne.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-    res.status(500).send({
-        message: err.message || "Some error occurred while creating the Enseigne."
-    });
-});
+    Enseigne.countDocuments({name:req.body.name}, function (err, count){
+        if (count>0){
+            console.log(count)
+        }else{
+            enseigne.save(
+                console.log("qwertyuio")
+            )
+                .then(data => {
+                    res.send(data);
+                }).catch(err => {
+                res.status(500).send({
+                    message: err.message || "Some error occurred while creating the Enseigne."
+                });
+            });
+        }
+    })
+
+
 };
 
 // Retrieve and return all enseignes from the database.
@@ -71,16 +80,20 @@ exports.findOne = (req, res) => {
 // Update a enseigne identified by the enseigneId in the request
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.content) {
+    if(!req.body.name) {
         return res.status(400).send({
-            message: "Enseigne content can not be empty"
+            message: "You have to name it"
         });
     }
 
     // Find enseigne and update it with the request body
     Enseigne.findByIdAndUpdate(req.params.enseigneId, {
-        title: req.body.title || "Untitled Enseigne",
-        content: req.body.content
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,
+        address:req.body.address,
+        imageURL:req.body.imageURL,
+        state:req.body.state
     }, {new: true})
         .then(enseigne => {
             if(!enseigne) {

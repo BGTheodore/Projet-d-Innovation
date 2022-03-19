@@ -186,7 +186,7 @@ const handleMenu = (event) => {
   const handleClick = () => {
     //start the loading 
     setIsLoading(true);
-    Tesseract.recognize(image, "eng",
+    Tesseract.recognize(image, "fr",
       {
         logger: m => {
           console.log(m);
@@ -199,6 +199,19 @@ const handleMenu = (event) => {
         setText(text);
         setIsLoading(false);
       });
+    //   Tesseract.recognize(
+    //       image,"fr",
+    //       {
+    //           logger: m => console.log(m)
+    //       }
+    //   )
+    //       .catch (err => {
+    //           console.error(err);
+    //       })
+    //       .then(result => {
+    //           console.log(result);
+    //       })
+
 
 
   };
