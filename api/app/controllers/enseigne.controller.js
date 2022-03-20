@@ -4,14 +4,14 @@ const Enseigne = require('../models/enseigne.model.js');
 exports.create = (req, res) => {
 // Validate request
     if(!req.body.name) {
-        return res.status(400).send({
-            message: "You have to name it"
-    });
+            return res.status(400).send({
+                message: "You have to name it"
+        });
     }
 
-// Create a Enseigne
+// Create an Enseigne
 const enseigne = new Enseigne({
-    name:req.body.name,
+    name:req.body.name.toLowerCase(),
     email:req.body.email,
     phone:req.body.phone,
     address:req.body.address,
@@ -21,24 +21,20 @@ const enseigne = new Enseigne({
 
 
 // Save Enseigne in the database
-    Enseigne.countDocuments({name:req.body.name}, function (err, count){
-        if (count>0){
-            console.log(count)
-        }else{
-            enseigne.save(
-                console.log("qwertyuio")
-            )
-                .then(data => {
-                    res.send(data);
-                }).catch(err => {
-                res.status(500).send({
-                    message: err.message || "Some error occurred while creating the Enseigne."
+Enseigne.countDocuments({name:req.body.name.toLowerCase()}, function (err, count){
+            if (count>0){
+                res.send('Data already save');
+            }else{
+                enseigne.save()
+                    .then(data => {
+                        res.send(data);
+                    }).catch(err => {
+                    res.status(500).send({
+                        message: err.message || "Some error occurred while creating the Enseigne."
+                    });
                 });
-            });
-        }
-    })
-
-
+            }
+        })
 };
 
 // Retrieve and return all enseignes from the database.
@@ -74,7 +70,6 @@ exports.findOne = (req, res) => {
             message: "Error retrieving enseigne with id " + req.params.enseigneId
         });
     });
-
 };
 
 // Update a enseigne identified by the enseigneId in the request
