@@ -5,8 +5,7 @@ const EnseigneSchema = mongoose.Schema({
     email:String,
     phone:String,
     address:String,
-    imageURL:String,
-    state:String
+    imageURL:String
 }, {
     timestamps: true
 });
